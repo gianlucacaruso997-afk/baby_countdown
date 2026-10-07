@@ -41,7 +41,7 @@ def ottieni_dimensione_frutto(settimane):
     elif settimane <= 16: return "un avocado 🥑 (11.6 cm)"
     elif settimane <= 20: return "un mango 🥭 (25.6 cm)"
     elif settimane <= 24: return "una spiga di mais 🌽 (30 cm)"
-    elif semanas <= 28: return "una melanzana 🍆 (37.6 cm)"
+    elif settimane <= 28: return "una melanzana 🍆 (37.6 cm)"
     elif settimane <= 32: return "una zucca gialla 🎃 (42.4 cm)"
     elif settimane <= 36: return "un melone 🍈 (47.4 cm)"
     else: return "una anguria 🍉 (51.2 cm)"
@@ -129,22 +129,21 @@ st.markdown(f"""
 if not st.session_state.autenticato:
     st.markdown('<div class="login-box">', unsafe_allow_html=True)
     st.markdown("<h2 style='text-align:center; font-weight:900; color:#1E1B4B;'>🔐 Accesso Piattaforma Premium</h2>", unsafe_allow_html=True)
-    st.write("<p style='text-align:center; color:#64748B;'>Inserisci le tue credenziali per accedere al diario di gravidanza cloud</p>", unsafe_allow_html=True)
+    st.write("<p style='text-align:center; color:#64748B;'>Inserisci le deine credenziali per accedere al diario cloud</p>", unsafe_allow_html=True)
     
     username_input = st.text_input("Username o Email")
     password_input = st.text_input("Password", type="password")
     
     if st.button("Accedi in Sicurezza", use_container_width=True):
-        # Controllo stringhe diretto e sicuro senza hash instabili
         if username_input in UTENTI_DB and UTENTI_DB[username_input] == password_input:
             st.session_state.autenticato = True
             st.session_state.username = username_input
-            st.success("Accesso effettuato! Caricamento in corso...")
-            time.sleep(1)
+            st.success("Accesso effettuato!")
+            time.sleep(0.5)
             st.rerun()
         else:
             st.error("Credenziali errate. Riprova o contatta l'assistenza.")
-    st.markdown("<p style='text-align:center; font-size:0.85rem; color:#94A3B8; margin-top:15px;'>Credenziali demo Dottoressa -> user: dottoressa / pass: password123</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align:center; font-size:0.85rem; color:#94A3B8; margin-top:15px;'>Credenziali demo -> user: dottoressa / pass: password123</p>", unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 else:
     # SEZIONE UTENTE AUTENTICATO - CARICAMENTO DIARIO DI LUSSO
@@ -158,7 +157,7 @@ else:
     if dati_salvati.get("sesso") in ["F", "M", "N"]:
         sesso_saved_index = list(sesso_mappa.values()).index(dati_salvati.get("sesso"))
 
-    # Dynamic updates del colore del tema in base ai dati salvati dell'utente connesso
+    # Aggiornamento dinamico del colore in base al sesso dell'utente loggato
     if dati_salvati.get("sesso") == "F":
         primary_color = "#FF2A7A"
         accent_box = "#FFF0F5"
@@ -166,7 +165,7 @@ else:
         primary_color = "#0084FF"
         accent_box = "#ECF5FF"
 
-    # Riga di controllo in alto con Benvenuto e Logout
+    # Barra di navigazione utente superiore
     log_col1, log_col2 = st.columns(2)
     with log_col1:
         st.markdown(f"##### 👤 Account: **{st.session_state.username.capitalize()}** | Stato: Premium ✨")
@@ -176,7 +175,7 @@ else:
             st.session_state.username = ""
             st.rerun()
 
-    # Apertura Card Madre
+    # Apertura Card Madre Bianca
     st.markdown('<div class="ultimate-card">', unsafe_allow_html=True)
     st.markdown('<h1 style="text-align:center; font-weight:900; color:#1E1B4B; font-size:2.8rem; margin-bottom:5px;">Suite Nascita Premium</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align:center; color:#6C757D; margin-bottom:40px;">Archivio crittografato e tracciamento gestazionale cloud</p>', unsafe_allow_html=True)
@@ -245,7 +244,7 @@ else:
                 <div class="dashboard-box"><div class="box-lbl">🔬 Fase Trimestrale</div><div class="box-val">{trimestre}</div></div>
                 <div class="dashboard-box"><div class="box-lbl">✨ Costellazione Astrale</div><div class="box-val">{segno_zodiacale}</div></div>
             </div>
-            <div class="dashboard-box" style="margin-top:20px; width:100%;"><div class="box-lbl">📏 Dimensioni Stimate del Bambino</div><div class="box-val" style="color:#6366F1 !important;">Attualmente ha le dimensioni di {dimensione_bambino}</div></div>
+            <div class="dashboard-box" style="margin-top:20px; width:100%;"><div class="box-lbl">📏 Dimensions Stimate del Bambino</div><div class="box-val" style="color:#6366F1 !important;">Attualmente ha le dimensioni di {dimensione_bambino}</div></div>
         """, unsafe_allow_html=True)
 
         # Caricamento Ecografia Protetta
