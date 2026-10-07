@@ -226,7 +226,7 @@ if esegui_calcolo or dati_salvati:
         <div class="dashboard-box" style="margin-top:20px; width:100%;"><div class="box-lbl">📏 Dimensioni Stimate del Bambino</div><div class="box-val" style="color:{primary_color} !important;">Attualmente ha le dimensioni di {dimensione_bambino}</div></div>
     """, unsafe_allow_html=True)
 
-    # BLOCCO ECOGRAFIA PROTETTO (Funziona solo se l'utente è loggato)
+    # FUNZIONALITÀ ULTIMATE: Caricamento Ecografia Real-Time
     st.markdown('<div class="eco-frame">', unsafe_allow_html=True)
     st.markdown("#### 👁️ Centro Ecografico Cloud Private")
     if st.session_state.autenticato:
@@ -254,10 +254,44 @@ if esegui_calcolo or dati_salvati:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Vetrine Sponsor e Affiliazioni Amazon con tag reale babycount-21 funzionante al 100%
+# Vetrine Sponsor e Affiliazioni Amazon con foto dei prodotti reali
 st.markdown(f'<div class="adv-banner-premium"><p style="color: {primary_color} !important; font-size: 0.8rem !important; text-transform: uppercase; font-weight:800; letter-spacing:1.5px; margin-bottom:5px;">⭐ Baby Countdown Spazio Partner ⭐</p><p style="color: #1E293B !important; font-size: 1.05rem !important; font-weight: 600; margin-bottom:5px;">Spazio pubblicitario ad alto rendimento riservato a Medici ed Cliniche Private.</p><p style="color: #64748B !important; font-size: 0.85rem !important;">Contattaci subito a: commercial@babycountdown.it</p></div>', unsafe_allow_html=True)
 st.markdown("<br><h3 style='text-align:center; font-weight:900; color:#1E1B4B;'>🛍️ Prodotti Consigliati dagli Specialisti</h3>", unsafe_allow_html=True)
+
 prod_col1, prod_col2, prod_col3 = st.columns(3)
-with prod_col1: st.markdown('<div class="premium-product"><span style="font-size:3.5rem;">🤰</span><h4>Cuscino Medico XXL</h4><p style="font-size:0.85rem; color:#6C757D;">Supporto posturale raccomandato.</p><a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a></div>', unsafe_allow_html=True)
-with prod_col2: st.markdown('<div class="premium-product"><span style="font-size:3.5rem;">🧴</span><h4>Olio Elastina Bio</h4><p style="font-size:0.85rem; color:#6C757D;">Trattamento smagliature dermatologico.</p><a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a></div>', unsafe_allow_html=True)
-with prod_col3: st.markdown('<div class="premium-product"><span style="font-size:3.5rem;">👶</span><h4>Pannolini Pampers Progressi</h4><p style="font-size:0.85rem; color:#6C757D;">Scorta mensile dei pannolini più scelti.</p><a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a></div>', unsafe_allow_html=True)
+
+with prod_col1:
+    st.markdown('''
+        <div class="product-card">
+            <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                <img src="https://media-amazon.com" style="max-height: 120px; max-width: 100%; object-fit: contain;">
+            </div>
+            <h4>Cuscino Medico XXL</h4>
+            <p style="font-size:0.85rem; color:#6C757D;">Supporto postulare Koala Babycare raccomandato.</p>
+            <a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a>
+        </div>
+    ''', unsafe_allow_html=True)
+
+with prod_col2:
+    st.markdown('''
+        <div class="product-card">
+            <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                <img src="https://media-amazon.com" style="max-height: 120px; max-width: 100%; object-fit: contain;">
+            </div>
+            <h4>Olio Elastina Bio</h4>
+            <p style="font-size:0.85rem; color:#6C757D;">Trattamento smagliature Bio-Oil dermatologico.</p>
+            <a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a>
+        </div>
+    ''', unsafe_allow_html=True)
+
+with prod_col3:
+    st.markdown('''
+        <div class="product-card">
+            <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                <img src="https://media-amazon.com" style="max-height: 120px; max-width: 100%; object-fit: contain;">
+            </div>
+            <h4>Pampers Progressi</h4>
+            <p style="font-size:0.85rem; color:#6C757D;">Scorta mensile dei pannolini più scelti.</p>
+            <a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a>
+        </div>
+    ''', unsafe_allow_html=True)
