@@ -255,43 +255,37 @@ if esegui_calcolo or dati_salvati:
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Vetrine Sponsor e Affiliazioni Amazon con foto dei prodotti reali
-st.markdown(f'<div class="adv-banner-premium"><p style="color: {primary_color} !important; font-size: 0.8rem !important; text-transform: uppercase; font-weight:800; letter-spacing:1.5px; margin-bottom:5px;">⭐ Baby Countdown Spazio Partner ⭐</p><p style="color: #1E293B !important; font-size: 1.05rem !important; font-weight: 600; margin-bottom:5px;">Spazio pubblicitario ad alto rendimento riservato a Medici ed Cliniche Private.</p><p style="color: #64748B !important; font-size: 0.85rem !important;">Contattaci subito a: commercial@babycountdown.it</p></div>', unsafe_allow_html=True)
 st.markdown("<br><h3 style='text-align:center; font-weight:900; color:#1E1B4B;'>🛍️ Prodotti Consigliati dagli Specialisti</h3>", unsafe_allow_html=True)
 
 prod_col1, prod_col2, prod_col3 = st.columns(3)
+TAG_AFFILIATO = "babycount-21"
 
 with prod_col1:
-    st.markdown('''
-        <div class="product-card">
-            <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                <img src="https://m.media-amazon.com/images/I/71u-S3e-KXL._AC_SL1500_.jpg" style="max-height: 120px; max-width: 100%; object-fit: contain;">
-            </div>
+    st.image("https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400", use_container_width=True)
+    st.markdown(f'''
+        <div style="text-align: center;">
             <h4>Cuscino Medico XXL</h4>
             <p style="font-size:0.85rem; color:#6C757D;">Supporto posturale Koala Babycare raccomandato.</p>
-            <a class="buy-btn" href="https://www.amazon.it/dp/B0DHVP32TC?tag=babycount-21" target="_blank">Acquista 🛒</a>
+            <a class="buy-btn" href="https://www.amazon.it/dp/B0DHVP32TC?tag={TAG_AFFILIATO}" target="_blank">Acquista 🛒</a>
         </div>
     ''', unsafe_allow_html=True)
 
 with prod_col2:
-    st.markdown('''
-        <div class="product-card">
-            <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                <img src="https://m.media-amazon.com/images/I/61N3mS9uLmL._AC_SL1500_.jpg" style="max-height: 120px; max-width: 100%; object-fit: contain;">
-            </div>
+    st.image("https://images.unsplash.com/photo-1608248597260-8f192b1525a1?w=400", use_container_width=True)
+    st.markdown(f'''
+        <div style="text-align: center;">
             <h4>Olio Elastina Bio</h4>
             <p style="font-size:0.85rem; color:#6C757D;">Trattamento smagliature Bio-Oil dermatologico.</p>
-            <a class="buy-btn" href="https://www.amazon.it/dp/B074BGZF1G?tag=babycount-21" target="_blank">Acquista 🛒</a>
+            <a class="buy-btn" href="https://www.amazon.it/dp/B074BGZF1G?tag={TAG_AFFILIATO}" target="_blank">Acquista 🛒</a>
         </div>
     ''', unsafe_allow_html=True)
 
 with prod_col3:
-    st.markdown('''
-        <div class="product-card">
-            <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                <img src="https://m.media-amazon.com/images/I/71Y+R4E52SL._AC_SL1500_.jpg" style="max-height: 120px; max-width: 100%; object-fit: contain;">
-            </div>
+    st.image("https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400", use_container_width=True)
+    st.markdown(f'''
+        <div style="text-align: center;">
             <h4>Pampers Progressi</h4>
             <p style="font-size:0.85rem; color:#6C757D;">Scorta mensile dei pannolini più scelti.</p>
-            <a class="buy-btn" href="https://www.amazon.it/dp/B0GLJBR3TH?tag=babycount-21" target="_blank">Acquista 🛒</a>
+            <a class="buy-btn" href="https://www.amazon.it/dp/B0GLJBR3TH?tag={TAG_AFFILIATO}" target="_blank">Acquista 🛒</a>
         </div>
     ''', unsafe_allow_html=True)
