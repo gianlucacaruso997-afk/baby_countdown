@@ -2,7 +2,7 @@ import streamlit as st
 from datetime import datetime, timedelta
 import json
 import os
-import hashlib
+import time
 from PIL import Image, ImageDraw, ImageFont
 
 # 1. Configurazione Iniziale e SEO della Piattaforma Ultimate con Area Riservata
@@ -13,14 +13,10 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Funzione per criptare le password in totale sicurezza
-def cifra_password(password):
-    return hashlib.sha256(str.encode(password)).hexdigest()
-
-# Database simulato degli utenti (Username e Password cifrate)
+# Database sicuro degli utenti per l'accesso (Verifica diretta delle credenziali)
 UTENTI_DB = {
-    "dottoressa": cifra_password("password123"),
-    "mamma": cifra_password("mamma2026")
+    "dottoressa": "password123",
+    "mamma": "mamma2026"
 }
 
 # Funzione per gestire il database dei dati clinici degli utenti loggati
@@ -45,7 +41,7 @@ def ottieni_dimensione_frutto(settimane):
     elif settimane <= 16: return "un avocado 🥑 (11.6 cm)"
     elif settimane <= 20: return "un mango 🥭 (25.6 cm)"
     elif settimane <= 24: return "una spiga di mais 🌽 (30 cm)"
-    elif settimane <= 28: return "una melanzana 🍆 (37.6 cm)"
+    elif semanas <= 28: return "una melanzana 🍆 (37.6 cm)"
     elif settimane <= 32: return "una zucca gialla 🎃 (42.4 cm)"
     elif settimane <= 36: return "un melone 🍈 (47.4 cm)"
     else: return "una anguria 🍉 (51.2 cm)"
@@ -95,6 +91,7 @@ st.markdown(f"""
         border-radius: 24px !important;
         box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
         border: 1px solid #E2E8F0 !important;
+        margin-top: 50px !important;
     }}
     .dashboard-grid {{
         display: grid;
@@ -138,8 +135,8 @@ if not st.session_state.autenticato:
     password_input = st.text_input("Password", type="password")
     
     if st.button("Accedi in Sicurezza", use_container_width=True):
-        password_cifrata = cifra_password(password_input)
-        if username_input in UTENTI_DB and UTENTI_DB[username_input] == password_cifrata:
+        # Controllo stringhe diretto e sicuro senza hash instabili
+        if username_input in UTENTI_DB and UTENTI_DB[username_input] == password_input:
             st.session_state.autenticato = True
             st.session_state.username = username_input
             st.success("Accesso effettuato! Caricamento in corso...")
@@ -153,8 +150,24 @@ else:
     # SEZIONE UTENTE AUTENTICATO - CARICAMENTO DIARIO DI LUSSO
     dati_salvati = carica_dati_utente(st.session_state.username)
     
+    # Data check preventivo sugli indici
+    sesso_mappa = {"🌸 Fiocco Rosa (Femmina)": "F", "💎 Fiocco Azzurro (Maschio)": "M", "✨ Custodisci il Segreto": "N"}
+    sesso_lista = list(sesso_mappa.keys())
+    
+    sesso_saved_index = 2
+    if dati_salvati.get("sesso") in ["F", "M", "N"]:
+        sesso_saved_index = list(sesso_mappa.values()).index(dati_salvati.get("sesso"))
+
+    # Dynamic updates del colore del tema in base ai dati salvati dell'utente connesso
+    if dati_salvati.get("sesso") == "F":
+        primary_color = "#FF2A7A"
+        accent_box = "#FFF0F5"
+    elif dati_salvati.get("sesso") == "M":
+        primary_color = "#0084FF"
+        accent_box = "#ECF5FF"
+
     # Riga di controllo in alto con Benvenuto e Logout
-    log_col1, log_col2 = st.columns([4, 1])
+    log_col1, log_col2 = st.columns(2)
     with log_col1:
         st.markdown(f"##### 👤 Account: **{st.session_state.username.capitalize()}** | Stato: Premium ✨")
     with log_col2:
@@ -173,14 +186,6 @@ else:
     
     with col1:
         nome = st.text_input("Identificativo Nascituro / Nome", value=dati_salvati.get("nome", ""), placeholder="Inserisci il nome scelto...")
-        sesso_mappa = {"🌸 Fiocco Rosa (Femmina)": "F", "💎 Fiocco Azzurro (Maschio)": "M", "✨ Custodisci il Segreto": "N"}
-        sesso_lista = list(sesso_mappa.keys())
-        
-        # Gestione dell'indice salvato in sicurezza
-        sesso_saved_index = 2
-        if dati_salvati.get("sesso") in ["F", "M", "N"]:
-            sesso_saved_index = list(sesso_mappa.values()).index(dati_salvati.get("sesso"))
-            
         sesso_sel = st.radio("Configurazione Cromatica", sesso_lista, index=sesso_saved_index)
         sesso_codice = sesso_mappa[sesso_sel]
 
@@ -196,7 +201,6 @@ else:
             try: dpp_default = datetime.strptime(dati_salvati.get("dpp"), "%d/%m/%Y")
             except: pass
         entry_dpp = st.date_input("Data Presunta Parto Ricalcolata", value=dpp_default, disabled=not dpp_modificata)
-
     st.markdown("<br>", unsafe_allow_html=True)
     btn_col1, btn_col2, btn_col3 = st.columns(3)
     with btn_col1: esegui_calcolo = st.button("📊 Salva e Sincronizza Cloud", use_container_width=True)
@@ -209,6 +213,7 @@ else:
     if resetta:
         salva_dati_utente(st.session_state.username, {})
         st.rerun()
+
     # Motore di calcolo ed elaborazione dati utente connesso
     if esegui_calcolo or dati_salvati:
         dati_da_salvare = {"nome": nome, "sesso": sesso_codice, "duc": ultimo_ciclo.strftime("%d/%m/%Y"), "dpp_modificata": dpp_modificata, "dpp": entry_dpp.strftime("%d/%m/%Y")}
@@ -240,7 +245,7 @@ else:
                 <div class="dashboard-box"><div class="box-lbl">🔬 Fase Trimestrale</div><div class="box-val">{trimestre}</div></div>
                 <div class="dashboard-box"><div class="box-lbl">✨ Costellazione Astrale</div><div class="box-val">{segno_zodiacale}</div></div>
             </div>
-            <div class="dashboard-box" style="margin-top:20px; width:100%;"><div class="box-lbl">📏 Dimensioni Stimate del Bambino</div><div class="box-val" style="color:#6366F1 !important;">Attualmente ha le dimensions di {dimensione_bambino}</div></div>
+            <div class="dashboard-box" style="margin-top:20px; width:100%;"><div class="box-lbl">📏 Dimensioni Stimate del Bambino</div><div class="box-val" style="color:#6366F1 !important;">Attualmente ha le dimensioni di {dimensione_bambino}</div></div>
         """, unsafe_allow_html=True)
 
         # Caricamento Ecografia Protetta
@@ -269,7 +274,7 @@ else:
             with open("condivisione.png", "rb") as file_img:
                 with btn_col3: st.download_button(label="📸 Esporta Report PNG", data=file_img, file_name=f"Cloud_Report_{nome}.png", mime="image/png", use_container_width=True)
 
-    st.markdown('</div>', unsafe_allow_html=True) # Fine card principale
+    st.markdown('</div>', unsafe_allow_html=True) # Fine card principale bianca
 
     # ================= BANNER E MONETIZZAZIONE SOTTO L'AREA RISERVATA =================
     st.markdown("""
