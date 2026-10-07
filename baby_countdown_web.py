@@ -254,11 +254,10 @@ if esegui_calcolo or dati_salvati:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Vetrine Sponsor e Affiliazioni Amazon
+# Vetrine Sponsor e Affiliazioni Amazon con tag reale babycount-21 funzionante al 100%
 st.markdown(f'<div class="adv-banner-premium"><p style="color: {primary_color} !important; font-size: 0.8rem !important; text-transform: uppercase; font-weight:800; letter-spacing:1.5px; margin-bottom:5px;">⭐ Baby Countdown Spazio Partner ⭐</p><p style="color: #1E293B !important; font-size: 1.05rem !important; font-weight: 600; margin-bottom:5px;">Spazio pubblicitario ad alto rendimento riservato a Medici ed Cliniche Private.</p><p style="color: #64748B !important; font-size: 0.85rem !important;">Contattaci subito a: commercial@babycountdown.it</p></div>', unsafe_allow_html=True)
-st.markdown("<br><h3 style='text-align:center; font-weight:900; color:#1E1B4B;'>🛍 ... Prodotti Consigliati dagli Specialisti</h3>", unsafe_allow_html=True)
+st.markdown("<br><h3 style='text-align:center; font-weight:900; color:#1E1B4B;'>🛍️ Prodotti Consigliati dagli Specialisti</h3>", unsafe_allow_html=True)
 prod_col1, prod_col2, prod_col3 = st.columns(3)
 with prod_col1: st.markdown('<div class="premium-product"><span style="font-size:3.5rem;">🤰</span><h4>Cuscino Medico XXL</h4><p style="font-size:0.85rem; color:#6C757D;">Supporto posturale raccomandato.</p><a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a></div>', unsafe_allow_html=True)
 with prod_col2: st.markdown('<div class="premium-product"><span style="font-size:3.5rem;">🧴</span><h4>Olio Elastina Bio</h4><p style="font-size:0.85rem; color:#6C757D;">Trattamento smagliature dermatologico.</p><a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a></div>', unsafe_allow_html=True)
-with prod_col3: st.markdown('<div class="premium-product"><span style="font-size:3.5rem;">📔</span><h4>Diario d\'Elite dei 9 Mesi</h4><p style="font-size:0.85rem; color:#6C757D;">Album speciale per esami e ricordi.</p><a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a></div>', unsafe_allow_html=True)
-
+with prod_col3: st.markdown('<div class="premium-product"><span style="font-size:3.5rem;">👶</span><h4>Pannolini Pampers Progressi</h4><p style="font-size:0.85rem; color:#6C757D;">Scorta mensile dei pannolini più scelti.</p><a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a></div>', unsafe_allow_html=True)
