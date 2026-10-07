@@ -163,6 +163,7 @@ st.markdown(f"""
         font-weight: 700 !important;
         font-size: 0.9rem;
         box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        transition: width 1s ease-in-out;
     }}
     
     .eco-frame {{
@@ -196,6 +197,16 @@ st.markdown(f"""
         font-weight: 700 !important;
         margin-top: 15px !important;
         box-shadow: 0 4px 10px rgba(255, 153, 0, 0.2);
+    }}
+    
+    /* Stile Banner Pubblicitari Spazi ADV Corretto e Spostato in basso */
+    .adv-banner-premium {{
+        background: #F8FAFC !important;
+        border: 2px dashed {primary_color} !important;
+        border-radius: 20px !important;
+        padding: 25px !important;
+        text-align: center !important;
+        margin: 40px 0 20px 0 !important;
     }}
     </style>
 """, unsafe_allow_html=True)
@@ -265,7 +276,6 @@ if esegui_calcolo or dati_salvati:
 
     # Barra di avanzamento Premium ad alta risoluzione
     st.markdown(f'<div class="ultimate-progress-wrap"><div class="ultimate-progress-core" style="width: {percentuale:.1f}%;">{percentuale:.2f}%</div></div>', unsafe_allow_html=True)
-    
     # Rendering della Dashboard dei Risultati Ultimate
     st.markdown(f"""
         <div class="dashboard-grid">
@@ -278,6 +288,7 @@ if esegui_calcolo or dati_salvati:
         </div>
         <div class="dashboard-box" style="margin-top:20px; width:100%;"><div class="box-lbl">📏 Dimensioni Stimate del Bambino</div><div class="box-val" style="color:{primary_color} !important;">Attualmente ha le dimensioni di {dimensione_bambino}</div></div>
     """, unsafe_allow_html=True)
+
     # FUNZIONALITÀ ULTIMATE: Caricamento Ecografia Real-Time
     st.markdown('<div class="eco-frame">', unsafe_allow_html=True)
     st.markdown("#### 👁️ Centro Ecografico Digitale")
@@ -294,7 +305,7 @@ if esegui_calcolo or dati_salvati:
         if 'contrazioni' not in st.session_state: st.session_state.contrazioni = []
         if st.button("🚨 Registra Picco Contrazione Ora"):
             st.session_state.contrazioni.append(datetime.now().strftime("%H:%M:%S"))
-        if st.session_state.contractions:
+        if st.session_state.contrazioni:
             for idx, c in enumerate(st.session_state.contrazioni):
                 st.write(f"Contrazione #{idx+1}: Rilevata alle ore **{c}**")
 
@@ -306,7 +317,17 @@ if esegui_calcolo or dati_salvati:
         with open("condivisione.png", "rb") as file_img:
             with btn_col3: st.download_button(label="📸 Esporta Report PNG", data=file_img, file_name=f"Report_{nome}.png", mime="image/png", use_container_width=True)
 
-st.markdown('</div>', unsafe_allow_html=True) # Fine card principale
+# Chiusura card principale bianca in modo che il banner vada SOTTO ed esterno
+st.markdown('</div>', unsafe_allow_html=True) 
+
+# ================= BANNER ADV PRO POSIZIONATO SOTTO E BRANDIZZATO =================
+st.markdown(f"""
+    <div class="adv-banner-premium">
+        <p style="color: {primary_color} !important; font-size: 0.8rem !important; text-transform: uppercase; font-weight:800; letter-spacing:1.5px; margin-bottom:5px;">⭐ Baby Countdown Spazio Partner ⭐</p>
+        <p style="color: #1E293B !important; font-size: 1.05rem !important; font-weight: 600; margin-bottom:5px;">Spazio pubblicitario riservato a Cliniche Pediatriche ed Ecografisti Locali.</p>
+        <p style="color: #64748B !important; font-size: 0.85rem !important;">Diventa il partner ufficiale dello studio medico. Contattaci a: adv@babycountdown.it</p>
+    </div>
+""", unsafe_allow_html=True)
 
 # ================= RIGIDA MONETIZZAZIONE AD RENDIMENTO HIGH-END =================
 st.markdown("<br><h3 style='text-align:center; font-weight:900; color:#1E1B4B;'>🛍️ La Vetrina delle Mamme - Consigliati dagli Specialisti</h3>", unsafe_allow_html=True)
