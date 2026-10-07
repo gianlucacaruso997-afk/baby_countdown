@@ -264,7 +264,7 @@ with prod_col1:
     st.markdown('''
         <div class="product-card">
             <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                <img src="https://media-amazon.com" style="max-height: 120px; max-width: 100%; object-fit: contain;">
+                <img src="https://www.amazon.it/Niimo-Cuscino-Allattamento-Gravidanza-XXL/dp/B0DHVP32TC/ref=sr_1_8?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1B189KD3KWE4U&dib=eyJ2IjoiMSJ9.9lWMytAsU-g8yVeGE2A8rETXUXPgmPIE_NyRJL-ci_5MFjzvf8NhOh1Uq8QWCCNKn-GHtKHw9z4TAKX0iphUBNioHDwcy-1iURZ1FlaTxnfh-2lE3dqOa3mJym9KzAgJOQxrWFhHkU_1gIXcxO32rGhH5zJ3qE_8qG6XDnL3LfmwY31BDE8Bi7abXEZhwaz3gaorogEqh94bxemRXYLKOX4Qu7Fczq4pHxPx47JTA1JjjBtVLsOr6asIAd5loYcEZ3wvXzyW8ODsiESxxggb-elzjQceRn-lT8KL3uCvbCU.0wyXX7t5ZOESpUVzXDOJ_AbZkcW83s5yg8nNruB62L4&dib_tag=se&keywords=cuscino+gravidanza+xxl&qid=1791370265&sprefix=cuscino+gravidanza+xx%2Caps%2C213&sr=8-8" style="max-height: 120px; max-width: 100%; object-fit: contain;">
             </div>
             <h4>Cuscino Medico XXL</h4>
             <p style="font-size:0.85rem; color:#6C757D;">Supporto postulare Koala Babycare raccomandato.</p>
@@ -276,7 +276,7 @@ with prod_col2:
     st.markdown('''
         <div class="product-card">
             <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                <img src="https://media-amazon.com" style="max-height: 120px; max-width: 100%; object-fit: contain;">
+                <img src="https://www.amazon.it/Korres-Olive-nutriente-corpo-capelli/dp/B074BGZF1G/ref=sxin_12_pa_sp_search_thematic_sspa?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&content-id=amzn1.sym.9e749b1e-ede2-4197-8534-6bd6e33c94e1%3Aamzn1.sym.9e749b1e-ede2-4197-8534-6bd6e33c94e1&cv_ct_cx=Olio+Elastina+Bio&keywords=Olio+Elastina+Bio&pd_rd_i=B074BGZF1G&pd_rd_r=a0dd100e-fe81-4b16-b9da-01768706c4de&pd_rd_w=mEzRy&pd_rd_wg=8OXGA&pf_rd_p=9e749b1e-ede2-4197-8534-6bd6e33c94e1&pf_rd_r=F5VBQGQPS7AEGR0W8BQ7&qid=1791370324&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-1-606b9024-e7f3-4ea5-8e94-e09e6bc2f45f-spons&aref=1UwLKOEH3n&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1" style="max-height: 120px; max-width: 100%; object-fit: contain;">
             </div>
             <h4>Olio Elastina Bio</h4>
             <p style="font-size:0.85rem; color:#6C757D;">Trattamento smagliature Bio-Oil dermatologico.</p>
@@ -292,6 +292,6 @@ with prod_col3:
             </div>
             <h4>Pampers Progressi</h4>
             <p style="font-size:0.85rem; color:#6C757D;">Scorta mensile dei pannolini più scelti.</p>
-            <a class="buy-btn" href="https://amazon.it" target="_blank">Acquista 🛒</a>
+            <a class="buy-btn" href="amazon.it/Pampers-Progressi-Newborn-Pannolini-Neonato/dp/B0GLJBR3TH/ref=sr_1_1_sspa?__mk_it_IT=ÅMÅŽÕÑ&crid=268HNYC05FIIW&dib=eyJ2IjoiMSJ9.FePA4rV6l25wvsERWzdl9W5ZJcinfE2j2kz-O4yIfnQfs7z9YGX9MeJ9Pxjf8ccvactJp35IaRQM3UZ-W91suR8ZbFO3jp3wMy02ko6k4Zy9qeV3kx_1nEgesmM2KG_Z0O7pmYN3r4fkW87j_tvC39LrVqPYOYEcqCnevDCleywmoGx5AJ0lP8iOlyxITDxL-ZCxGndK79RbR_xwFX83oKWpi2OU0VGJmAgZ9GRKap5HCMoJV10ZT1CvxaiBRexZGT81ijNxt-Sy8LehIe5YSjOhyoGZ2wJo5G5Pz6ioK48.chzAAKuiMx62pISjN5L13IZZRUKkn6EnV6-ZdVeZCDo&dib_tag=se&keywords=Pampers+Progressi&qid=1791370365&sprefix=pampers+progressi%2Caps%2C200&sr=8-1-spons&aref=MpASyn80SN&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" target="_blank">Acquista 🛒</a>
         </div>
     ''', unsafe_allow_html=True)
